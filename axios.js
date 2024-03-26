@@ -7,6 +7,7 @@ const axios_client = axios.create({
 });
 
 axios_client.interceptors.request.use(config => {
+  //when a user login then awesome token is store in localStorage
   const token = localStorage.getItem('awesome');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
